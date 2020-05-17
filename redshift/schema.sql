@@ -1,6 +1,6 @@
--- Star Schema for an example data warehouse.  Conforms to the Star Schema Benchmark.
+-- Schema for an example data warehouse.  Conforms to the Star Schema Benchmark.
 
-CREATE IF NOT EXISTS TABLE part (
+CREATE TABLE IF NOT EXISTS part (
   p_partkey     	integer     	not null	sortkey distkey,
   p_name        	varchar(22) 	not null,
   p_mfgr        	varchar(6)      not null,
@@ -12,7 +12,7 @@ CREATE IF NOT EXISTS TABLE part (
   p_container   	varchar(10)     not null
 );
 
-CREATE IF NOT EXISTS TABLE supplier (
+CREATE TABLE IF NOT EXISTS supplier (
   s_suppkey     	integer        not null sortkey,
   s_name        	varchar(25)    not null,
   s_address     	varchar(25)    not null,
@@ -22,7 +22,7 @@ CREATE IF NOT EXISTS TABLE supplier (
   s_phone       	varchar(15)    not null)
 diststyle all;
 
-CREATE IF NOT EXISTS TABLE customer (
+CREATE TABLE IF NOT EXISTS customer (
   c_custkey     	integer        not null sortkey,
   c_name        	varchar(25)    not null,
   c_address     	varchar(25)    not null,
@@ -33,7 +33,7 @@ CREATE IF NOT EXISTS TABLE customer (
   c_mktsegment      varchar(10)    not null)
 diststyle all;
 
-CREATE IF NOT EXISTS TABLE dwdate (
+CREATE TABLE IF NOT EXISTS dwdate (
   d_datekey            integer       not null sortkey,
   d_date               varchar(19)   not null,
   d_dayofweek	      varchar(10)   not null,
@@ -53,7 +53,7 @@ CREATE IF NOT EXISTS TABLE dwdate (
   d_weekdayfl          varchar(1)    not null)
 diststyle all;
 
-CREATE IF NOT EXISTS TABLE lineorder (
+CREATE TABLE IF NOT EXISTS lineorder (
   lo_orderkey      	    integer     	not null,
   lo_linenumber        	integer     	not null,
   lo_custkey           	integer     	not null,
